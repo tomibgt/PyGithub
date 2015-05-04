@@ -25,6 +25,8 @@
 #                                                                              #
 # ##############################################################################
 
+import datetime
+
 import github.GithubObject
 import github.PaginatedList
 
@@ -72,6 +74,14 @@ class Commit(github.GithubObject.CompletableGithubObject):
         """
         self._completeIfNotSet(self._committer)
         return self._committer.value
+
+    @property
+    def date(self):
+        """
+        :type: datetime.datetime
+        """
+        self._completeIfNotSet(self._date)
+        return self._date
 
     @property
     def files(self):
@@ -208,6 +218,7 @@ class Commit(github.GithubObject.CompletableGithubObject):
         self._comments_url = github.GithubObject.NotSet
         self._commit = github.GithubObject.NotSet
         self._committer = github.GithubObject.NotSet
+        self._date = github.GithubObject.NotSet
         self._files = github.GithubObject.NotSet
         self._html_url = github.GithubObject.NotSet
         self._parents = github.GithubObject.NotSet
@@ -222,7 +233,9 @@ class Commit(github.GithubObject.CompletableGithubObject):
             self._comments_url = self._makeStringAttribute(attributes["comments_url"])
         if "commit" in attributes:  # pragma no branch
             self._commit = self._makeClassAttribute(github.GitCommit.GitCommit, attributes["commit"])
-        if "committer" in attributes:  # pragma no branch
+            #self._date = datetime.datetime.strptime(attributes["commit"]["committer"]["date"], "%a, %d %b %Y %H:%M:%S %Z")
+            self._date = datetime.datetime.strptime(attributes["commit"]["committer"]["date"][0:10], "%Y-%m-%d")
+        if "committer" in attributes:  # pragma no branch 2010-05-26T05:25:00Z
             self._committer = self._makeClassAttribute(github.NamedUser.NamedUser, attributes["committer"])
         if "files" in attributes:  # pragma no branch
             self._files = self._makeListOfClassesAttribute(github.File.File, attributes["files"])
