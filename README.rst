@@ -5,7 +5,7 @@ It covers almost the full API (see "What's missing" below), and all methods are 
 
 Should you have any question, any remark, or if you find a bug, or if there is something you can do with the API but not with PyGithub, please `open an issue <https://github.com/jacquev6/PyGithub/issues>`_.
 
-Here is the `references documentation <http://jacquev6.github.io/PyGithub/v1>`_.
+For further details, please refer to the `reference documentation <http://pygithub.readthedocs.org/en/stable/>`_ at ``readthedocs.org``.
 
 Looking for maintainers (February 22nd, 2015)
 =============================================
@@ -58,11 +58,6 @@ A lot of things including the following URLs, and every new things published by 
 * ``/repos/:owner/:repo/contents/:path`` (PUT)
 * ``/repos/:owner/:repo/notifications`` (GET)
 * ``/repos/:owner/:repo/notifications`` (PUT)
-* ``/repos/:owner/:repo/releases`` (GET)
-* ``/repos/:owner/:repo/releases`` (POST)
-* ``/repos/:owner/:repo/releases/:id`` (DELETE)
-* ``/repos/:owner/:repo/releases/:id`` (GET)
-* ``/repos/:owner/:repo/releases/:id`` (PATCH)
 * ``/repos/:owner/:repo/releases/:id/assets`` (GET)
 * ``/repos/:owner/:repo/releases/assets/:id`` (DELETE)
 * ``/repos/:owner/:repo/releases/assets/:id`` (GET)
