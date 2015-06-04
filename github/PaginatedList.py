@@ -58,7 +58,7 @@ class PaginatedListBase:
 
     def _grow(self):
         newElements = self._fetchNextPage()
-        self.__elements += newElements
+        self.__elements = newElements
         return newElements
 
     class _Slice:
